@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profileImg from "@/assets/profile.png";
 
 const HeroSection = () => (
   <section id="home" className="min-h-screen flex items-center pt-16 relative overflow-hidden">
@@ -50,7 +49,7 @@ const HeroSection = () => (
         <div className="relative">
           <div className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 glow-box-strong">
             <img
-              src={profileImg}
+              src="https://i.postimg.cc/66SYRZ2X/My-Photo-2.jpg"
               alt="Parth Mandhare"
               width={512}
               height={512}
