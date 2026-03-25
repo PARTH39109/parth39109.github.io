@@ -49,7 +49,7 @@ const HeroSection = () => (
         <div className="relative">
           <div className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 glow-box-strong">
             <img
-              src={profileImg}
+              src="https://i.postimg.cc/66SYRZ2X/My-Photo-2.jpg"
               alt="Parth Mandhare"
               width={512}
               height={512}
