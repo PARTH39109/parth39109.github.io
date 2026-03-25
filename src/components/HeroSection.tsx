@@ -57,8 +57,8 @@ const HeroSection = () => (
             />
           </div>
           <div className="absolute -bottom-4 -right-4 bg-card border border-border rounded-lg px-4 py-2 glow-box animate-float">
-            <p className="text-primary font-bold text-lg">Computer Engineer</p>
-            <p className="text-xs text-muted-foreground">Computer Science</p>
+            <p className="text-primary font-bold text-lg">B.Tech CS</p>
+            <p className="text-xs text-muted-foreground">Computer Engineer</p>
           </div>
         </div>
       </motion.div>
