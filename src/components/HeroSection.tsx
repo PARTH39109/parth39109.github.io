@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profileImg from "@/assets/profile.png";
 
 const HeroSection = () => (
   <section id="home" className="min-h-screen flex items-center pt-16 relative overflow-hidden">
