@@ -42,9 +42,9 @@ const ContactSection = () => {
             <div className="space-y-4">
               {[
                 { icon: Mail, label: "parthmandhare@email.com", href: "mailto:parthmandhare@email.com" },
-                { icon: Phone, label: "+91 XXXXX XXXXX", href: "#" },
-                { icon: Linkedin, label: "LinkedIn Profile", href: "#" },
-                { icon: Github, label: "GitHub Profile", href: "#" },
+                { icon: Phone, label: "+91 9594612006", href: "tel:+919594612006" },
+                { icon: Linkedin, label: "linkedin.com/in/parth_mandhare", href: "https://linkedin.com/in/parth_mandhare" },
+                { icon: Github, label: "PARTH39", href: "https://github.com/PARTH39" },
               ].map((c) => (
                 <a
                   key={c.label}
