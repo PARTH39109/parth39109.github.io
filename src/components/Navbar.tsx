@@ -32,8 +32,10 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <Button size="sm" className="gap-2">
-            <Download className="w-4 h-4" /> Resume
+          <Button size="sm" className="gap-2" asChild>
+            <a href="/ParthResume_1.pdf" download>
+              <Download className="w-4 h-4" /> Resume
+            </a>
           </Button>
         </div>
 
