@@ -1,0 +1,56 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main          # trigger on every push to main
+  workflow_dispatch:  # allow manual trigger from the GitHub Actions UI
+
+# Grant the workflow permission to write to gh-pages branch / Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository (full history preserved)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # keep full git history
+
+      # 2. Set up Node.js (matches the project's Vite/React ecosystem)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # 3. Install dependencies
+      #    Using npm install (not npm ci) to be resilient if the lock file
+      #    has minor drift. After the first CI run you can switch back to npm ci.
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Run the Vite production build
+      - name: Build
+        run: npm run build
+
+      # 5. Deploy the dist/ folder to the gh-pages branch
+      #    peaceiris/actions-gh-pages pushes the build output to gh-pages
+      #    and handles creating the branch on first run.
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          # Prevents GitHub from running Jekyll on the output (important for Vite SPAs)
+          enable_jekyll: false
+          # Commit message shown in the gh-pages branch
+          commit_message: "Deploy: ${{ github.event.head_commit.message }}"

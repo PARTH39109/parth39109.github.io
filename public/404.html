@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parth Mandhare | Portfolio</title>
+    <!--
+      GitHub Pages SPA single-page-app redirect trick.
+      When GitHub Pages serves this 404.html for any path (e.g. /about),
+      we save the path to sessionStorage then redirect to the root index.html.
+      The script in index.html reads sessionStorage and uses history.replaceState
+      so React Router sees the original URL without a full reload.
+
+      pathSegmentsToKeep = 0  → because this is a user/org site (parth39109.github.io)
+                                and the repo is served at the root (/), not a subpath.
+      If the repo is a project site (e.g. parth39109.github.io/Portfolio/),
+      change pathSegmentsToKeep to 1.
+    -->
+    <script type="text/javascript">
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname
+            .split("/")
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join("/") +
+          "/?/" +
+          l.pathname
+            .slice(1)
+            .split("/")
+            .slice(pathSegmentsToKeep)
+            .join("/")
+            .replace(/&/g, "~and~") +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
